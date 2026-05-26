@@ -4,7 +4,7 @@ What this document is: a short account of how the discipline has actually been a
 
 ## The corpus
 
-- **Setting.** A production AI system generating Israeli civil-litigation documents, developed by multiple AI coding sessions running in parallel against a shared repository, coordinated through status documents and handoff memos.
+- **Setting.** A production AI legal reasoning system for Israeli civil litigation (a decision system, not a document generator), developed by multiple AI coding sessions running in parallel against a shared repository, coordinated through status documents and handoff memos.
 - **Measured window.** A sustained ~36-hour working window of parallel AI-assisted development, during which the discipline's fires and catches were tracked.
 - **Volume.** 24+ instances where the check fired and produced a reframe (Class A, B, or C).
 - **Subclasses.** Eight distinct drift subclasses surfaced and were named (the catalog in [PROTOCOL.md §4](./PROTOCOL.md)).

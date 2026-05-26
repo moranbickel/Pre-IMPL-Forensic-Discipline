@@ -82,7 +82,7 @@ The reframe is a finding, not a verdict you must obey blindly. If your forensic 
 
 ---
 
-### Why is this v0.1 when the other five pieces are v1.0?
+### Why is this v0.1 when the sibling pieces are further along?
 
 Because it's honest about its evidence. The discipline is real and battle-tested, but on a *single* project. The siblings were published when their evidence base was mature; this one's isn't yet — no second-project pilot, subclass library below target. Publishing it at v1.0 would overstate what's been validated. v0.1 says: the discipline works, here's exactly what's missing, here's the input that would close the gap. See [EVIDENCE.md](../EVIDENCE.md).
 
