@@ -96,7 +96,8 @@ The disciplines are layers, not substitutes. In my own practice the stack is: fo
 | [docs/faq.md](./docs/faq.md) | Anticipated questions. |
 | [templates/forensic-check-checklist.md](./templates/forensic-check-checklist.md) | The §B checklist as a copy-paste artifact. |
 | [templates/reframe-memo-template.md](./templates/reframe-memo-template.md) | The reframe-memo structure. |
-| [examples/forensic-catch-walkthrough.md](./examples/forensic-catch-walkthrough.md) | A synthetic end-to-end catch. |
+| [examples/state-drift-catch-walkthrough.md](./examples/state-drift-catch-walkthrough.md) | A synthetic end-to-end **Class A** (state-drift) catch — the dominant class; the correct build is *nothing*. |
+| [examples/forensic-catch-walkthrough.md](./examples/forensic-catch-walkthrough.md) | A synthetic end-to-end **Class B** (structural-misreference) catch — the named artifact was the wrong one. |
 | [diagram.svg](./diagram.svg) | The catch → classify → reframe → route lattice. |
 
 ---

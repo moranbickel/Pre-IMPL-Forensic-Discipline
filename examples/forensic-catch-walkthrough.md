@@ -122,7 +122,7 @@ The forensic cost about ten minutes (two file reads and a `git log`). It prevent
 
 ## What this example does NOT show
 
-- A **Class A** catch (state-drift) — the more common case, where the framing *was* right and a parallel commit moved the world. Cheaper to verify (`git log` + a read), same reframe shape.
+- A **Class A** catch (state-drift) — the more common case, where the framing *was* right and a parallel commit moved the world. Cheaper to verify (`git log` + a read), same reframe shape. It has its own walkthrough: [`state-drift-catch-walkthrough.md`](./state-drift-catch-walkthrough.md).
 - A **Class C** catch (doctrinal-mis-citation) — where a content-bearing task cites a source that doesn't support the claim. The most expensive class; the verification is looking the source up and reading it.
 - A **skip** — a task where the check correctly does *not* fire (a typo fix, a freshly-verified premise). Knowing when not to run the check is half the discipline (see [PROTOCOL.md §1.5](../PROTOCOL.md)).
 
