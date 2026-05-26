@@ -4,7 +4,7 @@
 
 If you've ever picked up a two-day-old note that said "fix the broken X in module Y," started writing the fix, and then opened module Y to discover it had been rewritten yesterday and the bug was already gone — this is the discipline.
 
-I built it while developing [ORCA](#about-orca), an AI legal reasoning system for Israeli civil litigation. It's the fifth of six methodology pieces I'm publishing. The first four are [Russian Judge](https://github.com/moranbickel/russian-judge), [Three-Body Protocol](https://github.com/moranbickel/three-body-protocol), [Peer-Worker Convergence](https://github.com/moranbickel/peer-worker-convergence), and [CSAE](https://github.com/moranbickel/csae).
+I built it while developing [ORCA](#about-orca), an AI legal reasoning system for Israeli civil litigation. It's part of a series of methodology pieces I'm publishing from that work, alongside [Russian Judge](https://github.com/moranbickel/russian-judge), [Three-Body Protocol](https://github.com/moranbickel/three-body-protocol), [Peer-Worker Convergence](https://github.com/moranbickel/peer-worker-convergence), and [CSAE](https://github.com/moranbickel/csae).
 
 > **Status: v0.1 draft.** Unlike its siblings, this piece is published as a scoping artifact, not a finished methodology. The discipline is operational and battle-tested — but on a single project. The evidence is strong and narrow. See [EVIDENCE.md](./EVIDENCE.md) for the publication preconditions that gate a v1.0, and [CONTRIBUTING.md](./CONTRIBUTING.md) for the one input that would move it: second-project adoption reports.
 
