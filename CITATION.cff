@@ -1,0 +1,25 @@
+cff-version: 1.2.0
+title: "Pre-IMPL Forensic Discipline: Catching Wrong Premises Before They Become Wrong Commits"
+message: "If you use this work, please cite it as below."
+type: software
+authors:
+  - family-names: Bickel
+    given-names: Moran
+    orcid: "https://orcid.org/0009-0009-4424-5900"
+version: "0.1"
+date-released: "2026-05-26"
+url: "https://github.com/moranbickel/pre-impl-forensic-discipline"
+repository-code: "https://github.com/moranbickel/pre-impl-forensic-discipline"
+license:
+  - MIT
+  - CC-BY-4.0
+abstract: "A pre-implementation verification discipline for AI-assisted development — a forensic checklist, a drift-class taxonomy (A/B/C), a subclass catalog, and a reframe obligation that fire on a task's premise before any implementation work begins."
+keywords:
+  - ai-assisted-development
+  - agentic-workflows
+  - pre-implementation
+  - forensic-verification
+  - premise-drift
+  - software-process
+  - ai-quality
+  - prompt-engineering
