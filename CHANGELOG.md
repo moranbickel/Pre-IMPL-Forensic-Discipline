@@ -1,5 +1,9 @@
 # Changelog
 
+## Unreleased
+
+- `examples/state-drift-catch-walkthrough.md` — new end-to-end **Class A (state-drift)** worked example, the full version of the README's opening anecdote (the dropped export-gate guard, already restored by a parallel commit). State-drift is the dominant class per EVIDENCE.md but was previously only demonstrated by the Class B walkthrough; this closes systemic-review finding S-7. Wired into the README docmap and the Class B walkthrough's cross-reference.
+
 ## v0.1 — 2026-05-26
 
 Initial draft release. This is a scoping artifact graduated into repository shape, not a finished v1.0 methodology. See [EVIDENCE.md](./EVIDENCE.md) for the publication preconditions that gate v1.0.
