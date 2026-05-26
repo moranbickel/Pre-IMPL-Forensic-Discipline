@@ -103,7 +103,7 @@ The disciplines are layers, not substitutes. In my own practice the stack is: fo
 
 ## About ORCA
 
-ORCA is a production AI system that generates Israeli civil litigation documents — statements of claim, statements of defense, legal memos. It runs multiple AI coding sessions in parallel against a shared repository, coordinated through status documents and handoff memos. That topology is precisely the one that produces premise drift: high velocity, parallel agents, memo-driven bridging.
+ORCA is a production AI legal reasoning system for Israeli civil litigation — a decision system, not a document generator: it reasons about which causes of action hold, which elements the evidence supports, and what relief follows (a programmer builds a document generator; a litigator builds a decision system). It runs multiple AI coding sessions in parallel against a shared repository, coordinated through status documents and handoff memos. That topology is precisely the one that produces premise drift: high velocity, parallel agents, memo-driven bridging.
 
 The discipline emerged because the cost of acting on a stale premise in that environment was measured in hours of dead-end work per day. The checklist, the taxonomy, and the subclass catalog are all sanitized generalizations of internal rules that earned their place by catching drift repeatedly. This repo is the public version of that discipline; the legal-domain specifics stay in ORCA.
 
