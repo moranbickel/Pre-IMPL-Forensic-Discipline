@@ -6,8 +6,8 @@ What this document is: a short account of how the discipline has actually been a
 
 - **Setting.** A production AI legal reasoning system for Israeli civil litigation (a decision system, not a document generator), developed by multiple AI coding sessions running in parallel against a shared repository, coordinated through status documents and handoff memos.
 - **Measured window.** A sustained ~36-hour working window of parallel AI-assisted development, during which the discipline's fires and catches were tracked.
-- **Volume.** 24+ instances where the check fired and produced a reframe (Class A, B, or C).
-- **Subclasses.** Eight distinct drift subclasses surfaced and were named (the catalog in [PROTOCOL.md §4](./PROTOCOL.md)).
+- **Volume.** 26+ instances where the check fired and produced a reframe (Class A, B, or C), counting two surfaced in continued application past the original measured window.
+- **Subclasses.** Ten distinct drift subclasses surfaced and were named (the catalog in [PROTOCOL.md §4](./PROTOCOL.md)).
 - **Fire rate.** Roughly one fire per 1.5 hours of active session work.
 - **Catch rate.** 20–30% of forensically-checked tasks produced a reframe — i.e., the framing was contradicted on one in three to one in five tasks checked.
 - **Conservative cost-saved estimate.** 25–40 hours of dead-end implementation avoided across the window.
@@ -44,7 +44,7 @@ The corpus is one author's application of the discipline on one project. It does
 This repo is published at v0.1 deliberately. The discipline is real and battle-tested, but on a single project. Three conditions gate promotion to a v1.0 methodology:
 
 1. **Cross-project validation.** At least one second-project pilot, ideally in a non-legal domain and a different agent stack, confirming the check fires and catches.
-2. **Subclass library at 30 instances.** Currently ~24. The catalog earns entries empirically; 30 is the threshold at which the eight subclasses are each backed by enough instances to be more than anecdote.
+2. **Subclass library at 30 instances.** Currently ~26. The catalog earns entries empirically; 30 is the threshold at which the ten subclasses are each backed by enough instances to be more than anecdote.
 3. **Originating project past active crisis.** Publishing a "how to work reliably" methodology while the originating project is itself in active deliverable crisis would be incongruent. The methodology should be drafted from a position of demonstrated stability.
 
 The fastest path to (1) is the one input this repo is asking for: see [CONTRIBUTING.md](./CONTRIBUTING.md).

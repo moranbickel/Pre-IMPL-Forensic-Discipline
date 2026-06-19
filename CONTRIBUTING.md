@@ -5,7 +5,7 @@ Issues and discussions are open. Because the evidence base is currently single-p
 ## What's most helpful
 
 - **Second-project adoption reports.** "I applied this in a different codebase / different agent stack; here's a catch it produced and here's one it missed." Cross-project evidence is exactly what this draft lacks.
-- **New subclasses.** If a drift you caught doesn't fit the eight subclasses cleanly, that's signal. Name it, describe the T1 framing, the T2 reality, and the verification step that caught it.
+- **New subclasses.** If a drift you caught doesn't fit the ten subclasses cleanly, that's signal. Name it, describe the T1 framing, the T2 reality, and the verification step that caught it.
 - **Counter-evidence.** Cases where the discipline fired and cost more than it saved — net-negative catches. The fire/skip cost asymmetry (PROTOCOL §6) is a claim, not a law; falsifying instances sharpen it.
 - **Mechanization.** The checkable subset (file-mtime-vs-claim, git-log-vs-state-claim, grep-for-siblings) is tool-able. Working tooling, or a sketch of it, is welcome.
 
