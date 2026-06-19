@@ -31,6 +31,8 @@ A note on the name: "§B" is a historical label — in the originating project t
 - An audit-memo classification.
 - A registry annotation citing empirical frequency.
 - A status document's "outstanding / next session" bullet.
+- A finding emitted by a generated artifact (a test result, a CI report, a build or analysis verdict) treated as describing the current code.
+- A coverage or subsumption claim — "X already handles this," or its inverse, "this needs a new X" — where X is named but its actual scope has not been read.
 
 **§1.5 When it does NOT fire.** The discipline is selective, not a universal speed-tax. It does not fire when:
 
@@ -104,6 +106,10 @@ Beyond A/B/C, recurring failure modes earn named subclasses for retrieval. Each 
 
 **§4.8 SURFACE-FIX-MASKS-DEEPER-ROOT-CAUSE.** The instinctive fix at the symptom layer would mask a defect at an upstream layer — and is particularly hazardous when the symptom-layer fix is technically correct in isolation. *Mitigation:* before fixing at the symptom layer, trace one layer upstream and confirm the root is not there.
 
+**§4.9 GENERATED-ARTIFACT-FINDING-WITHOUT-PROVENANCE.** A finding emitted by a generated artifact — a test result, a CI report, a build log, a static-analysis verdict, an output bundle — is treated as describing the *current* code, when the artifact was in fact produced by an *earlier* version of the tree. The finding is real; its subject is stale. Acting on it (filing a defect, citing it as done-criteria, closing a task, opening a reframe) propagates a conclusion about code that no longer exists in that form. *Mitigation:* before treating a generated finding as live, verify the artifact's provenance — the commit or tree version that produced it — is current. If the producing tree is behind canonical, the finding may describe the old producer; re-generate or re-verify against the current code before acting. This is the artifact-layer analog of §2.7: there, the *status document* you chose the task from was stale; here, the *result* you are reasoning from is. It is also cheaply mechanizable — stamping each generated artifact with the producing commit, then comparing that against canonical at consumption time, is exactly the kind of checkable provenance §8.1 calls for.
+
+**§4.10 SUBSUMPTION-CLAIM-BY-NAME.** A change is scoped on the premise that an existing artifact already covers it ("rule / component / document X handles this") — or its inverse, that nothing covers it, so a new artifact is needed. The premise is settled by the candidate's *name or title*, not by its *predicate* — what it actually governs. A name that sounds adjacent is taken as coverage; the candidate's real scope is never read. *Mitigation:* read the candidate's actual predicate and test subsumption directly. Conclude "already covered" only when the new concern is genuinely a subset of what the candidate governs; create a new artifact only when it is genuinely *not* a subset of any existing one. The discipline is a subsumption *test* (read-the-predicate), not a default-to-merge or a default-to-create *bias* — both directions are the same name-matching error. This subclass is self-referential: it governs the growth of this very catalog (is a freshly-caught drift a new subclass, or an instance of an existing one?), which is exactly why the test is read-the-predicate, not match-the-title.
+
 ---
 
 ## §5. The Reframe Obligation
@@ -171,6 +177,10 @@ The checklist splits into a mechanizable subset and a judgment subset.
 **§9.5 Premise-of-the-aggregate.** Acting on another agent's summarized count or conclusion without decomposing it (subclass §4.2). The aggregate smuggles an interpretation past verification.
 
 **§9.6 Fire-on-everything.** Running the forensic on typo fixes and freshly-verified premises (violates §1.5). Dilutes the signal until the actor skims and the check catches nothing.
+
+**§9.7 Subsumption-by-name.** Concluding "already covered by X" — or "needs a new X" — from a name match rather than a read of what X actually governs (subclass §4.10). Both the false merge (folding a genuinely-new concern into an artifact that doesn't cover it, where it is silently dropped) and the false split (creating a redundant artifact for a concern an existing one already owns) are the same error: the title was checked, the predicate was not.
+
+**§9.8 Stale-result-as-current.** Reasoning from a generated artifact's finding without checking the artifact's provenance (subclass §4.9). The result is real but describes an earlier tree; the conclusion is applied to code that has since moved.
 
 ---
 

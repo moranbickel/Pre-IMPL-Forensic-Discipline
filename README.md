@@ -38,7 +38,7 @@ Three artifacts, applied at the moment a task is picked up:
 
 1. **The §B Forensic Check** — a seven-item checklist run *before* any implementation. Open the named file. Run the named producer. Check the mtimes. Read the integration partners' actual code. (Full list in [PROTOCOL.md §2](./PROTOCOL.md).)
 
-2. **The A/B/C drift taxonomy** — when the check contradicts the framing, classify the drift. **Class A** (state-drift: was true, world moved). **Class B** (structural-misreference: named the wrong artifact). **Class C** (doctrinal-mis-citation: cited a source that doesn't say what the framing claims). Plus a catalog of eight named subclasses observed in production.
+2. **The A/B/C drift taxonomy** — when the check contradicts the framing, classify the drift. **Class A** (state-drift: was true, world moved). **Class B** (structural-misreference: named the wrong artifact). **Class C** (doctrinal-mis-citation: cited a source that doesn't say what the framing claims). Plus a catalog of ten named subclasses observed in production.
 
 3. **The reframe obligation** — a contradicted premise produces a *reframe memo* before any code is written: original frame, forensic finding, reframed scope, class, and a **confirmed receiver** (the workstream or locus that owns the corrected scope). The fix after reframe is routinely *different* from what the task prescribed.
 
