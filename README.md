@@ -4,7 +4,7 @@
 
 If you've ever picked up a two-day-old note that said "fix the broken X in module Y," started writing the fix, then opened module Y to find it had been rewritten yesterday and the bug was already gone, this is for you.
 
-I built it while developing [ORCA](#about-orca), an AI legal reasoning system for Israeli civil litigation. It's one of a series of methodology pieces I'm publishing from that work, alongside [Russian Judge](https://github.com/moranbickel/russian-judge), [Three-Body Protocol](https://github.com/moranbickel/three-body-protocol), [Peer-Worker Convergence](https://github.com/moranbickel/peer-worker-convergence), and [CSAE](https://github.com/moranbickel/csae).
+I built it while developing [ORCA](#about-orca), an AI legal reasoning system for Israeli civil litigation. It's one of a series of methodology pieces I'm publishing from that work, alongside [Russian Judge](https://github.com/moranbickel/Russian-Judge), [Three-Body Protocol](https://github.com/moranbickel/Three-Body-Protocol), [Peer-Worker Convergence](https://github.com/moranbickel/Peer-Worker-Convergence), and [CSAE](https://github.com/moranbickel/CSAE).
 
 > **Status: v0.1 draft.** Unlike its siblings, this piece is published as a scoping artifact, not a finished methodology. The discipline is operational and battle-tested, but only on a single project. The evidence is strong and narrow. See [EVIDENCE.md](./EVIDENCE.md) for the preconditions that gate a v1.0, and [CONTRIBUTING.md](./CONTRIBUTING.md) for the one input that would move it: second-project adoption reports.
 
@@ -38,7 +38,7 @@ Three artifacts, applied at the moment a task is picked up:
 
 1. **The §B Forensic Check** is a seven-item checklist you run *before* any implementation. Open the named file. Run the named producer. Check the mtimes. Read the integration partners' actual code. (Full list in [PROTOCOL.md §2](./PROTOCOL.md).)
 
-2. **The A/B/C drift taxonomy** is how you classify the drift when the check contradicts the framing. **Class A** is state-drift: it was true, the world moved. **Class B** is structural-misreference: the framing named the wrong artifact. **Class C** is doctrinal-mis-citation: it cited a source that doesn't say what the framing claims. There's also a catalog of ten named subclasses seen in production.
+2. **The A/B/C drift taxonomy** is how you classify the drift when the check contradicts the framing. **Class A** is state-drift: it was true, the world moved. **Class B** is structural-misreference: the framing named the wrong artifact. **Class C** is doctrinal-mis-citation: it cited a source that doesn't say what the framing claims. There's also a catalog of named subclasses seen in production.
 
 3. **The reframe obligation** says a contradicted premise produces a *reframe memo* before any code is written. The memo records the original frame, the forensic finding, the reframed scope, the class, and a **confirmed receiver** (the workstream or place that owns the corrected scope). The fix after a reframe is routinely *different* from what the task asked for.
 
@@ -48,7 +48,7 @@ Three artifacts, applied at the moment a task is picked up:
 
 The discipline overlaps with established practices but isn't any of them.
 
-**It isn't code review.** Code review (including [Russian Judge](https://github.com/moranbickel/russian-judge)) looks at completed work. Pre-IMPL Forensic looks at the *premise* before work begins. It catches "we're about to do the wrong work," not "the work we did is flawed." The two compose: forensic checks the premise, review checks the result.
+**It isn't code review.** Code review (including [Russian Judge](https://github.com/moranbickel/Russian-Judge)) looks at completed work. Pre-IMPL Forensic looks at the *premise* before work begins. It catches "we're about to do the wrong work," not "the work we did is flawed." The two compose: forensic checks the premise, review checks the result.
 
 **It isn't test-driven development.** TDD needs a clear specification to write tests against. Pre-IMPL Forensic checks that the specification itself isn't built on stale reality. A green test suite proves you built the thing right. It says nothing about whether the thing was still worth building.
 
@@ -62,25 +62,25 @@ The discipline overlaps with established practices but isn't any of them.
 
 ## Pre-IMPL Forensic vs. alternatives
 
-| Dimension | Code review / [RJ](https://github.com/moranbickel/russian-judge) | TDD | Requirements elicitation | Pre-IMPL Forensic |
+| Dimension | Code review / [RJ](https://github.com/moranbickel/Russian-Judge) | TDD | Requirements elicitation | Pre-IMPL Forensic |
 |---|---|---|---|---|
 | Operates on | the completed work | the work, against a spec | what the user wants | the **premise** of the task |
 | Fires | after the work is done | before + during implementation | before the work | before the work, **at pickup** |
-| Catches | flawed output | regressions against the spec | the wrong target | the wrong **framing** — a stale or misnamed premise |
-| Assumes | the task was correctly framed | the spec is current | — | nothing; it **verifies** the spec is current |
-| Cost per application | minutes–hours | ongoing | upfront | 5–30 minutes |
+| Catches | flawed output | regressions against the spec | the wrong target | the wrong **framing** - a stale or misnamed premise |
+| Assumes | the task was correctly framed | the spec is current | - | nothing; it **verifies** the spec is current |
+| Cost per application | minutes-hours | ongoing | upfront | 5-30 minutes |
 
-The disciplines are layers, not substitutes. In my own practice the stack is: forensic checks the premise, TDD constrains the build, [RJ](https://github.com/moranbickel/russian-judge) audits the result, [CSAE](https://github.com/moranbickel/csae) attests the landing. Each answers a question the others don't.
+The disciplines are layers, not substitutes. In my own practice the stack is: forensic checks the premise, TDD constrains the build, [RJ](https://github.com/moranbickel/Russian-Judge) audits the result, [CSAE](https://github.com/moranbickel/CSAE) attests the landing. Each answers a question the others don't.
 
 ---
 
 ## Sibling pieces
 
-[Russian Judge](https://github.com/moranbickel/russian-judge) is the review layer this one is explicitly *not*. RJ asks "is the work I did flawed?" Pre-IMPL Forensic asks "is the work I'm about to do correctly framed?" RJ fires after the work; this fires before. Run both, and a premise that survives verification produces work that survives review.
+[Russian Judge](https://github.com/moranbickel/Russian-Judge) is the review layer this one is explicitly *not*. RJ asks "is the work I did flawed?" Pre-IMPL Forensic asks "is the work I'm about to do correctly framed?" RJ fires after the work; this fires before. Run both, and a premise that survives verification produces work that survives review.
 
-[Three-Body Protocol](https://github.com/moranbickel/three-body-protocol) and [Peer-Worker Convergence](https://github.com/moranbickel/peer-worker-convergence) are the coordination layers that *produce* the artifacts this discipline distrusts. Their handoff notes, status documents, and worker branches are exactly the snapshots that age between writing and pickup. Three-Body keeps sessions aligned across time, Peer-Worker keeps parallel workers converging, and Pre-IMPL Forensic assumes both will drift anyway and checks the premise at the moment of consumption. The three compose: coordination reduces the drift, forensic catches the residue.
+[Three-Body Protocol](https://github.com/moranbickel/Three-Body-Protocol) and [Peer-Worker Convergence](https://github.com/moranbickel/Peer-Worker-Convergence) are the coordination layers that *produce* the artifacts this discipline distrusts. Their handoff notes, status documents, and worker branches are exactly the snapshots that age between writing and pickup. Three-Body keeps sessions aligned across time, Peer-Worker keeps parallel workers converging, and Pre-IMPL Forensic assumes both will drift anyway and checks the premise at the moment of consumption. The three compose: coordination reduces the drift, forensic catches the residue.
 
-[CSAE](https://github.com/moranbickel/csae) attests what landed on `main`. Pre-IMPL Forensic checks what *should* be worked before it lands at all. CSAE guards the entrance; this guards the intent.
+[CSAE](https://github.com/moranbickel/CSAE) attests what landed on `main`. Pre-IMPL Forensic checks what *should* be worked before it lands at all. CSAE guards the entrance; this guards the intent.
 
 ---
 
@@ -89,15 +89,15 @@ The disciplines are layers, not substitutes. In my own practice the stack is: fo
 | File | What it is |
 |---|---|
 | [README.md](./README.md) | This file: what, why, when, and how it compares. |
-| [PROTOCOL.md](./PROTOCOL.md) | The formal specification (§§1–11). The source of truth. |
+| [PROTOCOL.md](./PROTOCOL.md) | The formal specification (§§1-11). The source of truth. |
 | [EVIDENCE.md](./EVIDENCE.md) | The empirical basis, the single-project caveat, the v1.0 preconditions. |
 | [docs/rationale.md](./docs/rationale.md) | Why it exists, what it replaces, why velocity made it load-bearing. |
 | [docs/how-to-adopt.md](./docs/how-to-adopt.md) | Concrete steps to start applying it. |
 | [docs/faq.md](./docs/faq.md) | Anticipated questions. |
 | [templates/forensic-check-checklist.md](./templates/forensic-check-checklist.md) | The §B checklist as a copy-paste artifact. |
 | [templates/reframe-memo-template.md](./templates/reframe-memo-template.md) | The reframe-memo structure. |
-| [examples/state-drift-catch-walkthrough.md](./examples/state-drift-catch-walkthrough.md) | A synthetic end-to-end **Class A** (state-drift) catch — the dominant class, where the correct build is *nothing*. |
-| [examples/forensic-catch-walkthrough.md](./examples/forensic-catch-walkthrough.md) | A synthetic end-to-end **Class B** (structural-misreference) catch — the named artifact was the wrong one. |
+| [examples/state-drift-catch-walkthrough.md](./examples/state-drift-catch-walkthrough.md) | A synthetic end-to-end **Class A** (state-drift) catch - the dominant class, where the correct build is *nothing*. |
+| [examples/forensic-catch-walkthrough.md](./examples/forensic-catch-walkthrough.md) | A synthetic end-to-end **Class B** (structural-misreference) catch - the named artifact was the wrong one. |
 | [diagram.svg](./diagram.svg) | The catch → classify → reframe → route lattice. |
 
 ---
@@ -114,4 +114,4 @@ The discipline emerged because acting on a stale premise in that environment was
 
 Dual-licensed. Prose (README, PROTOCOL, EVIDENCE, docs) under [CC BY 4.0](./LICENSE-CC-BY-4.0); templates and any code under [MIT](./LICENSE-MIT). See [CITATION.md](./CITATION.md) to cite.
 
-— Moran Bickel
+- Moran Bickel
