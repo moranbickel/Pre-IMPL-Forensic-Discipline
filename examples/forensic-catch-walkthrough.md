@@ -10,10 +10,10 @@ The setting: a documentation pipeline that renders Markdown source files into pu
 
 A backlog row, authored two days before pickup:
 
-> **DOC-214** — The em-dash characters in our source files are breaking the
+> **DOC-214** - The em-dash characters in our source files are breaking the
 > downstream PDF encoder (it expects ASCII). Extend the HTML lint gate
 > (`gates/html_lint.py`) to flag em-dashes so they get caught before
-> they reach the encoder. Should be a small change — the gate already
+> they reach the encoder. Should be a small change - the gate already
 > walks every file.
 
 Clear, specific, names the file, sounds small. The tempting move is to open `gates/html_lint.py`, add an em-dash rule, and ship. A careful engineer might even write a test first. Either way, the premise (*the gate walks the source files and is the right place to catch this*) goes unexamined.
@@ -24,7 +24,7 @@ Clear, specific, names the file, sounds small. The tempting move is to open `gat
 
 The picker-up runs the [checklist](../templates/forensic-check-checklist.md) before writing anything.
 
-**§2.1 — Read the named artifact.** Open `gates/html_lint.py`. It exists. But the first thing the code does:
+**§2.1 - Read the named artifact.** Open `gates/html_lint.py`. It exists. But the first thing the code does:
 
 ```python
 def run(run_dir):
@@ -35,7 +35,7 @@ def run(run_dir):
 
 The gate walks `rendered/*.html`, the *output* of the render step, not the Markdown source. The row said "the gate already walks every file," implying source files. It walks rendered HTML.
 
-**§2.6 — Read the integration partner.** The row's real concern is the *PDF encoder.* Find it: `pipeline/pdf_encode.py`. Read where it reads from:
+**§2.6 - Read the integration partner.** The row's real concern is the *PDF encoder.* Find it: `pipeline/pdf_encode.py`. Read where it reads from:
 
 ```python
 def encode(run_dir):
@@ -45,7 +45,7 @@ def encode(run_dir):
 
 The encoder reads the **source Markdown directly**. It does not consume the rendered HTML at all. So a lint rule added to `html_lint.py` (which scans rendered HTML) would never see the characters the encoder chokes on (which live in source Markdown). The two artifacts the row conflates (the HTML lint gate and the PDF encoder) are on *different inputs.*
 
-**§2.3 — mtime sanity.** `git log` on `pdf_encode.py`: last touched the morning the row was filed. The encoder's source-reading behavior isn't new drift; it was already true at T1. The row was *never* accurate about where the em-dashes needed catching.
+**§2.3 - mtime sanity.** `git log` on `pdf_encode.py`: last touched the morning the row was filed. The encoder's source-reading behavior isn't new drift; it was already true at T1. The row was *never* accurate about where the em-dashes needed catching.
 
 The check stops here. Item §2.1 and §2.6 both came back `NO`. The premise is contradicted.
 
@@ -53,7 +53,7 @@ The check stops here. Item §2.1 and §2.6 both came back `NO`. The premise is c
 
 ## The classification
 
-This is **Class B — structural-misreference.** The framing named the wrong artifact: it pointed at the HTML lint gate as the place to catch em-dashes, but the gate operates on rendered HTML while the failure occurs on source Markdown that a *different* component (the encoder) reads directly. Adding the rule where the row said would have produced a gate that passes while the encoder keeps breaking, a fix that's technically correct in isolation and useless in context.
+This is **Class B - structural-misreference.** The framing named the wrong artifact: it pointed at the HTML lint gate as the place to catch em-dashes, but the gate operates on rendered HTML while the failure occurs on source Markdown that a *different* component (the encoder) reads directly. Adding the rule where the row said would have produced a gate that passes while the encoder keeps breaking, a fix that's technically correct in isolation and useless in context.
 
 It's not Class A (nothing drifted; the encoder behaved this way at T1 too). It's not Class C (no cited source is mis-attributed). It's B: the artifact named in the framing isn't the artifact that owns the problem.
 
@@ -66,9 +66,9 @@ Note what caught it: **§2.6, reading the integration partner.** Item §2.1 alon
 Filed before any code, per the [template](../templates/reframe-memo-template.md):
 
 ```
-# REFRAME: DOC-214 — em-dash encoder break
+# REFRAME: DOC-214 - em-dash encoder break
 
-DATE: 2026-05-26    CLASS: B    SUBCLASS: —
+DATE: 2026-05-26    CLASS: B    SUBCLASS: -
 
 ## 1. Original frame
 DOC-214 says: extend gates/html_lint.py to flag em-dashes so they're caught
@@ -76,8 +76,8 @@ before the PDF encoder breaks. Premise: the HTML lint gate is the right place,
 "it already walks every file."
 
 ## 2. Forensic finding
-- gates/html_lint.py:2 globs rendered/*.html — it walks RENDERED OUTPUT, not source.
-- pipeline/pdf_encode.py:2 reads source/<doc>.md DIRECTLY — it never consumes the
+- gates/html_lint.py:2 globs rendered/*.html - it walks RENDERED OUTPUT, not source.
+- pipeline/pdf_encode.py:2 reads source/<doc>.md DIRECTLY - it never consumes the
   rendered HTML.
 - A lint rule in html_lint.py would scan HTML the encoder doesn't read; the em-dashes
   that break the encoder live in source Markdown the HTML gate never sees.
@@ -85,12 +85,12 @@ before the PDF encoder breaks. Premise: the HTML lint gate is the right place,
 - The two artifacts the row conflates operate on different inputs.
 
 ## 3. Reframed scope
-The em-dash check must run on SOURCE Markdown, on the encoder's input path —
+The em-dash check must run on SOURCE Markdown, on the encoder's input path -
 either a pre-encode source-lint step, or inside pdf_encode.py before it reads.
 Extending html_lint.py does NOT address the failure. Original prescription dropped.
 
 ## 4. Class
-B — structural-misreference. Named the HTML lint gate; the problem lives on the
+B - structural-misreference. Named the HTML lint gate; the problem lives on the
 encoder's source-input path.
 
 ## 5. Confirmed receiver
@@ -126,4 +126,4 @@ The forensic cost about ten minutes (two file reads and a `git log`). It prevent
 - A **Class C** catch (doctrinal-mis-citation), where a content-bearing task cites a source that doesn't support the claim. The most expensive class; the verification is looking the source up and reading it.
 - A **skip**, a task where the check correctly does *not* fire (a typo fix, a freshly-verified premise). Knowing when not to run the check is half the discipline (see [PROTOCOL.md §1.5](../PROTOCOL.md)).
 
-For the full class taxonomy and the subclass catalog, see [PROTOCOL.md §3–§4](../PROTOCOL.md).
+For the full class taxonomy and the subclass catalog, see [PROTOCOL.md §3-§4](../PROTOCOL.md).

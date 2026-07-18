@@ -1,4 +1,4 @@
-# Pre-IMPL Forensic Discipline — Protocol Specification
+# Pre-IMPL Forensic Discipline - Protocol Specification
 
 **Version:** 0.1 (draft)
 **Status:** Operational on one project; pre-v1.0 pending cross-project validation
@@ -64,7 +64,7 @@ When a task triggers the discipline, the picker-up runs this seven-item check BE
 
 **§2.7 Re-read status documents after any boot-time merge.** If the actor started in a workspace that was behind canonical and pulled to catch up, the status document was authored before the canonical state arrived. Priority intent formed pre-merge can be wrong by construction. Re-read after the merge, before forming intent. *(Catches the meta-drift where the very document you used to choose the task was stale.)*
 
-**§2.8 The contradiction rule.** If ANY of §2.1–§2.7 contradicts the task's framing, the picker-up files a reframe memo (per §5) BEFORE writing code. The fix scope after reframe is routinely different from the task's original prescription.
+**§2.8 The contradiction rule.** If ANY of §2.1-§2.7 contradicts the task's framing, the picker-up files a reframe memo (per §5) BEFORE writing code. The fix scope after reframe is routinely different from the task's original prescription.
 
 ---
 
@@ -74,15 +74,15 @@ Drift between authored framing (T1) and pickup-time reality (T2) takes three sha
 
 | Class | What's wrong | Verification question | Detection cost |
 |-------|--------------|----------------------|----------------|
-| **A — State-drift** | Framing was correct at authoring; the world moved. | "Is this still true *today*?" | Cheap — git log + current code. |
-| **B — Structural-misreference** | Framing named the wrong artifact, OR missed a correctly-named existing one. | "Was this *ever* true?" | Medium — read the named artifact + verify it does what the framing claims. |
-| **C — Doctrinal-mis-citation** | (Subclass of B for content-bearing work.) Framing cites a source whose actual content does NOT match the claim attributed to it. | "Does the source *say* what the framing claims it says?" | Expensive — source lookup + content reading + claim mapping. |
+| **A - State-drift** | Framing was correct at authoring; the world moved. | "Is this still true *today*?" | Cheap - git log + current code. |
+| **B - Structural-misreference** | Framing named the wrong artifact, OR missed a correctly-named existing one. | "Was this *ever* true?" | Medium - read the named artifact + verify it does what the framing claims. |
+| **C - Doctrinal-mis-citation** | (Subclass of B for content-bearing work.) Framing cites a source whose actual content does NOT match the claim attributed to it. | "Does the source *say* what the framing claims it says?" | Expensive - source lookup + content reading + claim mapping. |
 
-**§3.1 Class A — State-drift.** The cheapest and most common. The framing was accurate when written; a commit, a parallel agent, or a prior session changed the underlying reality. The verification is a `git log` and a current read. The opening example in the README (guard already restored) is Class A.
+**§3.1 Class A - State-drift.** The cheapest and most common. The framing was accurate when written; a commit, a parallel agent, or a prior session changed the underlying reality. The verification is a `git log` and a current read. The opening example in the README (guard already restored) is Class A.
 
-**§3.2 Class B — Structural-misreference.** The framing was never accurate: it pointed at the wrong file, named a function that doesn't do what it's said to do, or claimed an artifact exists that doesn't. More expensive because confirming requires reading the named artifact *and* establishing what it actually does.
+**§3.2 Class B - Structural-misreference.** The framing was never accurate: it pointed at the wrong file, named a function that doesn't do what it's said to do, or claimed an artifact exists that doesn't. More expensive because confirming requires reading the named artifact *and* establishing what it actually does.
 
-**§3.3 Class C — Doctrinal-mis-citation.** The most expensive. A content-bearing framing cites an authoritative source (a statute, a spec section, a standard) and attributes a claim to it that the source does not support. Confirming requires looking up the source, reading its actual content, and mapping it against the claim. In domains where the cited content is load-bearing for the output (legal, medical, regulated, standards-conformant), this class is where the most damaging defects hide, because the citation *looks* authoritative.
+**§3.3 Class C - Doctrinal-mis-citation.** The most expensive. A content-bearing framing cites an authoritative source (a statute, a spec section, a standard) and attributes a claim to it that the source does not support. Confirming requires looking up the source, reading its actual content, and mapping it against the claim. In domains where the cited content is load-bearing for the output (legal, medical, regulated, standards-conformant), this class is where the most damaging defects hide, because the citation *looks* authoritative.
 
 ---
 
@@ -118,11 +118,11 @@ Beyond A/B/C, recurring failure modes earn named subclasses for retrieval. Each 
 
 **§5.2 The five required fields.** A reframe memo names:
 
-1. **Original frame** — what the task assumed, quoted or closely paraphrased.
-2. **Forensic finding** — what the §B check actually found, with the artifact and the evidence.
-3. **Reframed scope** — what the task actually is, now that the premise is corrected.
-4. **Class** — A, B, or C (plus subclass if one applies, per §4).
-5. **Confirmed receiver** — the workstream, backlog row, or code locus that owns the reframed scope.
+1. **Original frame** - what the task assumed, quoted or closely paraphrased.
+2. **Forensic finding** - what the §B check actually found, with the artifact and the evidence.
+3. **Reframed scope** - what the task actually is, now that the premise is corrected.
+4. **Class** - A, B, or C (plus subclass if one applies, per §4).
+5. **Confirmed receiver** - the workstream, backlog row, or code locus that owns the reframed scope.
 
 **§5.3 The confirmed-receiver rule.** A reframe without a confirmed receiver is a memo into the void. "This probably belongs in workstream X" is insufficient. Confirm by reading X's current state and establishing that it can own the corrected scope. If no receiver exists, file a stub *as* the receiver. A correction nobody owns is a correction that gets re-discovered, re-investigated, and re-lost on the next pickup.
 
@@ -132,9 +132,9 @@ Beyond A/B/C, recurring failure modes earn named subclasses for retrieval. Each 
 
 ## §6. The Fire/Skip Judgment
 
-**§6.1 The cost asymmetry.** The decision to fire or skip is asymmetric in favor of firing. Skipping verification on a misframed task wastes hours-to-days of downstream implementation; firing it on a correctly-framed task wastes 5–30 minutes of forensic. When uncertain, fire.
+**§6.1 The cost asymmetry.** The decision to fire or skip is asymmetric in favor of firing. Skipping verification on a misframed task wastes hours-to-days of downstream implementation; firing it on a correctly-framed task wastes 5-30 minutes of forensic. When uncertain, fire.
 
-**§6.2 The break-even.** Each forensic check costs 5–30 minutes. Each catch prevents 0.5–5 hours of wrong work. The discipline pays for itself when **5% or more** of checked tasks would have been wrong-framed. In the originating project's measured window the actual catch rate was 20–30%, well above break-even.
+**§6.2 The break-even.** Each forensic check costs 5-30 minutes. Each catch prevents 0.5-5 hours of wrong work. The discipline pays for itself when **5% or more** of checked tasks would have been wrong-framed. In the originating project's measured window the actual catch rate was 20-30%, well above break-even.
 
 **§6.3 The skip is a real option, not a failure.** Skipping per §1.5 is correct discipline, not a shortcut. Firing on a typo fix or a freshly-verified premise is the same anti-pattern as code-reviewing a comment edit: it dilutes the signal. The skill is calibration, not maximalism.
 

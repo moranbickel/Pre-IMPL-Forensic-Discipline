@@ -13,7 +13,7 @@ repository-code: "https://github.com/moranbickel/pre-impl-forensic-discipline"
 license:
   - MIT
   - CC-BY-4.0
-abstract: "A pre-implementation verification discipline for AI-assisted development — a forensic checklist, a drift-class taxonomy (A/B/C), a subclass catalog, and a reframe obligation that fire on a task's premise before any implementation work begins."
+abstract: "A pre-implementation verification discipline for AI-assisted development - a forensic checklist, a drift-class taxonomy (A/B/C), a subclass catalog, and a reframe obligation that fire on a task's premise before any implementation work begins."
 keywords:
   - ai-assisted-development
   - agentic-workflows

@@ -1,4 +1,4 @@
-# §B Forensic Check — Checklist
+# §B Forensic Check - Checklist
 
 Copy this into your task tracker, pickup ritual, or agent prompt. Run it on any task that arrives with **inherited framing** and is more than trivial, **before** writing any implementation. (When to skip entirely: see [PROTOCOL.md §1.5](../PROTOCOL.md).)
 
@@ -9,7 +9,7 @@ The discipline is satisfied by *doing* the actions, not by reading them. Each it
 ## The seven items
 
 ```
-TASK: <one line — what the inherited framing says to do>
+TASK: <one line - what the inherited framing says to do>
 SOURCE OF FRAMING: <backlog row / handoff memo / plan ref / status bullet / audit memo>
 AUTHORED AT (T1): <when the framing was written, if known>
 PICKED UP AT (T2): <now>
@@ -44,14 +44,14 @@ PICKED UP AT (T2): <now>
        Did this workspace pull to catch up at start? [ yes / no ]
        If yes: re-read <status doc> AFTER the merge, BEFORE forming intent. [ done ]
 
-CONTRADICTION FOUND? [ none — proceed / YES — file a reframe memo first ]
+CONTRADICTION FOUND? [ none - proceed / YES - file a reframe memo first ]
 ```
 
 ---
 
 ## The contradiction rule
 
-If **any** item comes back `NO`, stop. Do not implement against the original framing. File a reframe memo ([template](./reframe-memo-template.md)) naming the class (A/B/C) and a confirmed receiver, then decide what to actually build — it is routinely different from what the task said.
+If **any** item comes back `NO`, stop. Do not implement against the original framing. File a reframe memo ([template](./reframe-memo-template.md)) naming the class (A/B/C) and a confirmed receiver, then decide what to actually build - it is routinely different from what the task said.
 
 ## The fire/skip reminder
 
