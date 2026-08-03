@@ -4,7 +4,7 @@
 
 If you've ever picked up a two-day-old note that said "fix the broken X in module Y," started writing the fix, then opened module Y to find it had been rewritten yesterday and the bug was already gone, this is for you.
 
-I built it while developing [ORCA](#about-orca), an AI legal reasoning system for Israeli civil litigation. It's one of a series of methodology pieces I'm publishing from that work, alongside [Russian Judge](https://github.com/moranbickel/Russian-Judge), [Three-Body Protocol](https://github.com/moranbickel/Three-Body-Protocol), [Peer-Worker Convergence](https://github.com/moranbickel/Peer-Worker-Convergence), and [CSAE](https://github.com/moranbickel/CSAE).
+I built it while developing [ORCA](#about-orca), an AI legal reasoning system for Israeli civil litigation. It's one of a series of methodology pieces I'm publishing from that work, alongside [Russian Judge](https://github.com/moranbickel/Russian-Judge), [Three-Body Protocol](https://github.com/moranbickel/Three-Body-Protocol), [Peer-Worker Convergence](https://github.com/moranbickel/Peer-Worker-Convergence), [CSAE](https://github.com/moranbickel/CSAE), and [Docket](https://github.com/moranbickel/Docket).
 
 > **Status: v0.1 draft.** Unlike its siblings, this piece is published as a scoping artifact, not a finished methodology. The discipline is operational and battle-tested, but only on a single project. The evidence is strong and narrow. See [EVIDENCE.md](./EVIDENCE.md) for the preconditions that gate a v1.0, and [CONTRIBUTING.md](./CONTRIBUTING.md) for the one input that would move it: second-project adoption reports.
 
