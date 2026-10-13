@@ -6,7 +6,7 @@
 
 This document specifies the discipline formally. It is the canonical reference. The README is a friendly entry point; this is the source of truth.
 
-A note on the name: "§B" is a historical label. In the originating project the forensic check was item B of a larger rule. The label stuck because the artifacts (memos, checklists, traces) all reference it. It is preserved here verbatim rather than renamed, so adopters reading the worked examples and the originating literature see the same token.
+A note on the name: "§B" is a historical label. It comes from the author's earlier notes, where the forensic check was item B of a larger list. It is preserved here rather than renamed so the worked examples and templates use the same token.
 
 ---
 
@@ -78,11 +78,11 @@ Drift between authored framing (T1) and pickup-time reality (T2) takes three sha
 | **B - Structural-misreference** | Framing named the wrong artifact, OR missed a correctly-named existing one. | "Was this *ever* true?" | Medium - read the named artifact + verify it does what the framing claims. |
 | **C - Doctrinal-mis-citation** | (Subclass of B for content-bearing work.) Framing cites a source whose actual content does NOT match the claim attributed to it. | "Does the source *say* what the framing claims it says?" | Expensive - source lookup + content reading + claim mapping. |
 
-**§3.1 Class A - State-drift.** The cheapest and most common. The framing was accurate when written; a commit, a parallel agent, or a prior session changed the underlying reality. The verification is a `git log` and a current read. The opening example in the README (guard already restored) is Class A.
+**§3.1 Class A - State-drift.** The cheapest, and in the author's experience the most frequent. The framing was accurate when written; a commit, a parallel agent, or a prior session changed the underlying reality. The verification is a `git log` and a current read. The opening example in the [rationale](./docs/rationale.md) (guard already restored) is Class A.
 
 **§3.2 Class B - Structural-misreference.** The framing was never accurate: it pointed at the wrong file, named a function that doesn't do what it's said to do, or claimed an artifact exists that doesn't. More expensive because confirming requires reading the named artifact *and* establishing what it actually does.
 
-**§3.3 Class C - Doctrinal-mis-citation.** The most expensive. A content-bearing framing cites an authoritative source (a statute, a spec section, a standard) and attributes a claim to it that the source does not support. Confirming requires looking up the source, reading its actual content, and mapping it against the claim. In domains where the cited content is load-bearing for the output (legal, medical, regulated, standards-conformant), this class is where the most damaging defects hide, because the citation *looks* authoritative.
+**§3.3 Class C - Doctrinal-mis-citation.** The most expensive. A content-bearing framing cites an authoritative source (a spec section, a standard, a policy) and attributes a claim to it that the source does not support. Confirming requires looking up the source, reading its actual content, and mapping it against the claim. Where the cited content is load-bearing for the output, this class can hide damaging defects, because the citation *looks* authoritative.
 
 ---
 
@@ -134,7 +134,7 @@ Beyond A/B/C, recurring failure modes earn named subclasses for retrieval. Each 
 
 **§6.1 The cost asymmetry.** The decision to fire or skip is asymmetric in favor of firing. Skipping verification on a misframed task wastes hours-to-days of downstream implementation; firing it on a correctly-framed task wastes 5-30 minutes of forensic. When uncertain, fire.
 
-**§6.2 The break-even.** Each forensic check costs 5-30 minutes. Each catch prevents 0.5-5 hours of wrong work. The discipline pays for itself when **5% or more** of checked tasks would have been wrong-framed. In the originating project's measured window the actual catch rate was 20-30%, well above break-even.
+**§6.2 The break-even.** Each forensic check costs 5-30 minutes. Each catch prevents 0.5-5 hours of wrong work. The break-even catch rate is the cost per check divided by the cost avoided per catch. With those ranges the ratio spans roughly 1.7% to 100%, so the discipline pays off only where checks are cheap relative to the wrong work they prevent. Estimate your own numbers; no public data here supports a particular catch rate.
 
 **§6.3 The skip is a real option, not a failure.** Skipping per §1.5 is correct discipline, not a shortcut. Firing on a typo fix or a freshly-verified premise is the same anti-pattern as code-reviewing a comment edit: it dilutes the signal. The skill is calibration, not maximalism.
 
@@ -166,9 +166,9 @@ The checklist splits into a mechanizable subset and a judgment subset.
 
 ## §9. Anti-Patterns
 
-**§9.1 Documentation mistaken for discipline.** A memo that *describes* this discipline does not *enforce* it. The discipline operates only when the pickup-time check actually fires. In the originating project, methodology documentation sat in the repo at the same time as the failure mode it described kept recurring at pickup, because the documentation was never read at pickup. The check is the discipline; the doc is a reference.
+**§9.1 Documentation mistaken for discipline.** A memo that *describes* this discipline does not *enforce* it. The discipline operates only when the pickup-time check actually fires. In the author's experience, methodology documentation sat in the repo while the failure mode it described kept recurring at pickup, because the documentation was never read at pickup. The check is the discipline; the doc is a reference.
 
-**§9.2 Velocity-pressure skip.** Under "just ship" pressure, the check is the first thing dropped. The cost-saved math does not change under pressure; only the *apparent* friction does. The catches the check would have produced are exactly the ones that turn into the next session's crisis.
+**§9.2 Velocity-pressure skip.** Under "just ship" pressure, the check is the first thing dropped. The cost-saved math does not change under pressure; only the *apparent* friction does. The catches the check would have produced are exactly the ones that turn into the next session's rework.
 
 **§9.3 Authority-asymmetry override.** Treating a senior framer's premise as more authoritative than the picker-up's forensic finding. The correct framing: the framer authored at T1; the forensic verifies T2. Seniority does not stop the world from moving between those two moments. The reframe is not insubordination; it is the discipline working.
 
@@ -197,7 +197,7 @@ The discipline does not solve:
 
 ## §11. Versioning
 
-This is v0.1, a draft, explicitly pre-v1.0. Material changes to the A/B/C taxonomy, the §B checklist item set, or the reframe obligation produce a major version. Refinements to the subclass catalog, the fire/skip heuristics, or the anti-patterns produce minor versions (v0.2, v0.3, …). v1.0 is gated on the publication preconditions in [EVIDENCE.md](./EVIDENCE.md): cross-project validation, a subclass library at the 30-instance target, and the originating project past active crisis.
+This is v0.1, a draft, explicitly pre-v1.0. Material changes to the A/B/C taxonomy, the §B checklist item set, or the reframe obligation produce a major version. Refinements to the subclass catalog, the fire/skip heuristics, or the anti-patterns produce minor versions (v0.2, v0.3, …). v1.0 is gated on the conditions in [EVIDENCE.md](./EVIDENCE.md): a cross-project pilot with published results, documented false-positive examples, and an adoption report from a second author.
 
 ---
 

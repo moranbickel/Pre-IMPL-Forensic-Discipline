@@ -23,7 +23,7 @@ That's the loop. Everything else is calibration.
 
 Apply the full [§B checklist](../templates/forensic-check-checklist.md) on every task that arrives with inherited framing and is more than trivial. You're calibrating two things: your sense of which claims are load-bearing, and your speed at the checks. Expect the first few to feel slow and a little paranoid. That's the cost floor; it drops fast.
 
-Track one number: how often the check contradicts the framing. If it's near zero, your project may be slow/serial enough that the discipline isn't earning its cost yet (that's fine - see "When it doesn't fit"). If it's one in three to one in five, you've found the same rate the originating project saw, and the discipline is paying for itself.
+Track one number: how often the check contradicts the framing. If it's near zero, your project may be slow/serial enough that the discipline isn't earning its cost yet (that's fine - see "When it doesn't fit"). If it contradicts the framing often enough that the time saved outweighs the time spent checking, the discipline is paying for itself; compare your own numbers.
 
 ---
 
@@ -84,7 +84,7 @@ This typically takes a week or two of consistent pickups.
 
 **Reframe without a receiver.** "This probably belongs somewhere else" and then moving on. The correction is real but unrouted; it gets re-lost on the next pickup.
 
-**Trusting a citation because it looks authoritative.** A cited statute / spec / standard that you didn't actually look up is a Class C waiting to happen. The authoritative *form* is exactly what lets the wrong *content* survive review.
+**Trusting a citation because it looks authoritative.** A cited spec / standard / policy that you didn't actually look up is a Class C waiting to happen. The authoritative *form* is exactly what lets the wrong *content* survive review.
 
 ---
 

@@ -1,8 +1,8 @@
 # Worked Example: A State-Drift Catch, End to End
 
-A complete Pre-IMPL Forensic cycle on the **most common** class of catch: state-drift (Class A), where the framing *was* accurate when written and a parallel commit moved the world before pickup. Per [EVIDENCE.md](../EVIDENCE.md), this class dominates the corpus, and it's the cheapest to verify.
+A complete Pre-IMPL Forensic cycle on the **most common** class of catch: state-drift (Class A), where the framing *was* accurate when written and a parallel commit moved the world before pickup. In the author's experience this is the most frequent class (an anecdotal impression, not a measurement; see [EVIDENCE.md](../EVIDENCE.md)), and it's the cheapest to verify.
 
-This is the full version of the story the [README](../README.md#the-failure-it-solves) opens with: the dropped export-gate guard. Synthetic in its specifics, real in its shape.
+This is the full version of the story told in the [rationale](../docs/rationale.md): the dropped export-gate guard. Synthetic in its specifics, real in its shape.
 
 The contrasting case, [the Class B walkthrough](./forensic-catch-walkthrough.md), shows a framing that was *never* right (wrong artifact named). This one shows a framing that was right and went stale. Same checklist, same reframe shape, much cheaper check, and a different ending: here the correct build is *nothing*.
 
@@ -126,7 +126,7 @@ The forensic cost about five minutes: one file read, one `git log`, one reproduc
 
 ## What to notice
 
-- **This is the cheapest class and the most common one.** Per [EVIDENCE.md](../EVIDENCE.md), state-drift dominates the corpus. The entire catch is one read plus one `git log`, which is exactly why skipping it feels safe and is not. The cheaper the check, the less excuse for not running it.
+- **This is the cheapest class, and in the author's experience the most frequent.** In the author's experience it is also the most frequent. The entire catch is one read plus one `git log`, which is exactly why skipping it feels safe and is not. The cheaper the check, the less excuse for not running it.
 - **Two signals agreeing is what makes it decisive.** The code shows a guard *and* the reproducer no longer fails *and* `git log` shows post-T1 activity. Any one alone is suggestive; together they're conclusive. The read tells you what the code says; the reproducer tells you what it does.
 - **The boot merge is often the very thing that shipped the fix.** You pulled `main` at session start, then picked up a note that the pull had already closed. Item §7 (re-read status after the merge, before forming intent) catches this class before you even open the file.
 - **"Already done" still requires a coverage check, not just an existence check.** The forensic question is whether the shipped fix covers the *scope the note described*, not merely whether some guard is present. A partial parallel fix leaves a sliver, and the sliver is the real (smaller) scope.
