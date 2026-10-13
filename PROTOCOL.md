@@ -36,7 +36,7 @@ A note on the name: "§B" is a historical label. It comes from the author's earl
 
 **§1.5 When it does NOT fire.** The discipline is selective, not a universal speed-tax. It does not fire when:
 
-- The task is purely doctrinal, typo-class, or cleanup work with no load-bearing inherited claim.
+- The task is purely conceptual, typo-class, or cleanup work with no load-bearing inherited claim.
 - The premise is being **proposed for the first time** in the same session: the framing *is* the authoring scope, not an inherited claim.
 - The cited artifact was **freshly verified in the same session** by the same actor.
 - The task targets a code-level invariant where every site is in scope by definition (e.g., "rename function X across all callers"; Find Usages is the trivial check).
@@ -76,13 +76,13 @@ Drift between authored framing (T1) and pickup-time reality (T2) takes three sha
 |-------|--------------|----------------------|----------------|
 | **A - State-drift** | Framing was correct at authoring; the world moved. | "Is this still true *today*?" | Cheap - git log + current code. |
 | **B - Structural-misreference** | Framing named the wrong artifact, OR missed a correctly-named existing one. | "Was this *ever* true?" | Medium - read the named artifact + verify it does what the framing claims. |
-| **C - Doctrinal-mis-citation** | (Subclass of B for content-bearing work.) Framing cites a source whose actual content does NOT match the claim attributed to it. | "Does the source *say* what the framing claims it says?" | Expensive - source lookup + content reading + claim mapping. |
+| **C - Source-mis-citation** | (Subclass of B for content-bearing work.) Framing cites a source whose actual content does NOT match the claim attributed to it. | "Does the source *say* what the framing claims it says?" | Expensive - source lookup + content reading + claim mapping. |
 
 **§3.1 Class A - State-drift.** The cheapest, and in the author's experience the most frequent. The framing was accurate when written; a commit, a parallel agent, or a prior session changed the underlying reality. The verification is a `git log` and a current read. The opening example in the [rationale](./docs/rationale.md) (guard already restored) is Class A.
 
 **§3.2 Class B - Structural-misreference.** The framing was never accurate: it pointed at the wrong file, named a function that doesn't do what it's said to do, or claimed an artifact exists that doesn't. More expensive because confirming requires reading the named artifact *and* establishing what it actually does.
 
-**§3.3 Class C - Doctrinal-mis-citation.** The most expensive. A content-bearing framing cites an authoritative source (a spec section, a standard, a policy) and attributes a claim to it that the source does not support. Confirming requires looking up the source, reading its actual content, and mapping it against the claim. Where the cited content is load-bearing for the output, this class can hide damaging defects, because the citation *looks* authoritative.
+**§3.3 Class C - Source-mis-citation.** The most expensive. A content-bearing framing cites a source (a spec, a document, a standard, an upstream comment) and attributes a claim to it that the source does not support. Confirming requires looking up the source, reading its actual content, and mapping it against the claim. Where the cited content is load-bearing for the output, this class can hide damaging defects, because the citation *looks* authoritative.
 
 ---
 
@@ -90,7 +90,7 @@ Drift between authored framing (T1) and pickup-time reality (T2) takes three sha
 
 Beyond A/B/C, recurring failure modes earn named subclasses for retrieval. Each shares the parent shape (T1 description drifts from T2 truth) but differs in artifact type, drift mechanism, and the verification that catches it. The catalog earns entries empirically: a subclass is added when a recurring instance is documented, not by enumeration.
 
-**§4.1 OPERATOR-SUBSTRATE-CONFABULATION.** An operator's local cache of project state (a stale knowledge mount, an old mental model) carries filenames or dates that no longer exist on canonical. Instructions reference identifiers that have been renamed or never existed. *Mitigation:* verify by **role/content**, not by name. Search for what the artifact *does* (a function, a section header, a doctrine keyword) before searching for its name; an empty name-search is evidence about the *name*, not about the capability. When the operator-named identifier differs from the canonical one, surface the discrepancy. Do not silently substitute, because the mismatch is the signal.
+**§4.1 OPERATOR-SUBSTRATE-CONFABULATION.** An operator's local cache of project state (a stale knowledge mount, an old mental model) carries filenames or dates that no longer exist on canonical. Instructions reference identifiers that have been renamed or never existed. *Mitigation:* verify by **role/content**, not by name. Search for what the artifact *does* (a function, a section header, a distinctive keyword) before searching for its name; an empty name-search is evidence about the *name*, not about the capability. When the operator-named identifier differs from the canonical one, surface the discrepancy. Do not silently substitute, because the mismatch is the signal.
 
 **§4.2 AGENT-PRIOR-OUTPUT-AS-PREMISE.** One agent's earlier output is adopted as a premise by the same or another agent without decomposition. Aggregates ("N events across M components") are especially hazardous: they propose an action while embedding a causal interpretation that needs separate verification. *Mitigation:* decompose the aggregate before acting on it; verify the interpretation, not just the count.
 

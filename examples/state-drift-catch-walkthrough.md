@@ -136,7 +136,7 @@ The forensic cost about five minutes: one file read, one `git log`, one reproduc
 ## What this example does NOT show
 
 - A **Class B** catch (structural-misreference), where the framing named the wrong artifact and the premise was *never* true. That's the [forensic-catch-walkthrough](./forensic-catch-walkthrough.md); it costs more to verify because reading the named file isn't enough; you have to read the integration partner.
-- A **Class C** catch (doctrinal-mis-citation), where a content-bearing framing cites a source that doesn't support the claim. The most expensive class; the verification is looking the source up and reading it.
+- A **Class C** catch (source-mis-citation), where a content-bearing framing cites a source that doesn't support the claim. The most expensive class; the verification is looking the source up and reading it.
 - A **skip**, a task where the check correctly does *not* fire (a typo fix, a premise you verified this same session). Knowing when not to run the check is half the discipline (see [PROTOCOL.md §1.5](../PROTOCOL.md)).
 
 For the full class taxonomy and the subclass catalog, see [PROTOCOL.md §3-§4](../PROTOCOL.md).
