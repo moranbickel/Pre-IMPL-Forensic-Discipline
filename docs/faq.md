@@ -82,7 +82,7 @@ The reframe is a finding, not a verdict you must obey blindly. If your forensic 
 
 ---
 
-### Why is this v0.1 when the sibling pieces are further along?
+### Why is this v0.1 when the related repos are published?
 
 Because it's honest about its evidence. The author has used the discipline on a *single* project, and its effectiveness is unmeasured. The evidence base here is thin - no second-project pilot, no published false-positive examples. Publishing it at v1.0 would overstate what's been validated. v0.1 says: here is a checklist one author found useful, here's exactly what's missing, here's the input that would close the gap. See [EVIDENCE.md](../EVIDENCE.md).
 

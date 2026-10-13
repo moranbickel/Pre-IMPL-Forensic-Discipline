@@ -1,6 +1,6 @@
 # How to Adopt Pre-IMPL Forensic
 
-Concrete steps to start applying the discipline today. Estimated time to functional use: **one task**. Estimated time to fluent use: **a week of real pickups**.
+Concrete steps to start applying the discipline today. Rough guesses, not measurements: functional use after one task, fluent use after a week or so of real pickups.
 
 There's nothing to install. The discipline is a habit plus two templates. The work is building the reflex of running the check before you act on an inherited premise.
 
@@ -70,7 +70,7 @@ You'll know you've adopted the discipline when:
 - You treat an impressive count or cost delta as a reason to investigate, not a reason to act.
 - You stop reading a handoff note as instructions and start reading it as a *T1 snapshot to verify.*
 
-This typically takes a week or two of consistent pickups.
+Expect this to take a week or two of consistent pickups (a guess, not a measurement).
 
 ---
 

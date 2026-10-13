@@ -55,5 +55,5 @@ Maintained by [Moran Bickel](https://github.com/moranbickel).
   `README.md`, `PROTOCOL.md`, `EVIDENCE.md`, `CONTRIBUTING.md`, `CHANGELOG.md`,
   `diagram.svg`, `docs/`, `examples/`.
 - Templates and code under [MIT](LICENSE-MIT): `templates/` and any scripts.
-  The top-level [LICENSE](LICENSE) is the same MIT text.
+  The top-level [LICENSE](LICENSE) carries the same MIT terms plus a scope header.
 - `CITATION.cff` and `CITATION.md` are citation metadata; reuse them as needed to cite this work.
