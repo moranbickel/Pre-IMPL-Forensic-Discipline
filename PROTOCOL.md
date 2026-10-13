@@ -6,7 +6,7 @@
 
 This document specifies the discipline formally. It is the canonical reference. The README is a friendly entry point; this is the source of truth.
 
-A note on the name: "§B" is a historical label. In the originating project the forensic check was item B of a larger rule. The label stuck because the artifacts (memos, checklists, traces) all reference it. It is preserved here verbatim rather than renamed, so adopters reading the worked examples and the originating literature see the same token.
+A note on the name: "§B" is a historical label. It comes from the author's earlier notes, where the forensic check was item B of a larger list. It is preserved here rather than renamed so the worked examples and templates use the same token.
 
 ---
 
@@ -24,7 +24,7 @@ A note on the name: "§B" is a historical label. In the originating project the 
 
 **§1.4 When it fires.** The discipline fires when a task carries *inherited framing* AND wrong-framing cost ≥ verification cost. Concretely, when the task arrived via any of:
 
-- A plan or spec reference ("WS-X item 4").
+- A plan or spec reference ("workstream X, item 4").
 - A backlog row in any tracking document.
 - A pickup memo from a prior session.
 - A reframe pointer from another agent's output.
@@ -36,7 +36,7 @@ A note on the name: "§B" is a historical label. In the originating project the 
 
 **§1.5 When it does NOT fire.** The discipline is selective, not a universal speed-tax. It does not fire when:
 
-- The task is purely doctrinal, typo-class, or cleanup work with no load-bearing inherited claim.
+- The task is purely conceptual, typo-class, or cleanup work with no load-bearing inherited claim.
 - The premise is being **proposed for the first time** in the same session: the framing *is* the authoring scope, not an inherited claim.
 - The cited artifact was **freshly verified in the same session** by the same actor.
 - The task targets a code-level invariant where every site is in scope by definition (e.g., "rename function X across all callers"; Find Usages is the trivial check).
@@ -58,7 +58,7 @@ When a task triggers the discipline, the picker-up runs this seven-item check BE
 
 **§2.4 Cross-verify path resolution against the running workspace.** If the task says "writes to X," inspect every working tree / branch / environment for recently-modified versions at X. *(Cross-workspace pollution zone: in parallel-agent systems the "same" file exists in several places at once.)*
 
-**§2.5 Scan for sibling instances if the bug class is recognizable.** The task flags one site; grep the codebase for the same pattern shape. Five-plus siblings means the right move is a class-sweep workstream, filed *before* the individual symptom fix. *(Turns a one-off fix into a root-cause fix, or surfaces that the "one bug" is one of many.)*
+**§2.5 Scan for sibling instances if the bug class is recognizable.** The task flags one site; grep the codebase for the same pattern shape. As a rule of thumb, five or more siblings means the right move is a class-sweep workstream, filed *before* the individual symptom fix. *(Turns a one-off fix into a root-cause fix, or surfaces that the "one bug" is one of many.)*
 
 **§2.6 Read the integration partners' actual code.** When the task references a named partner the work will consume from or produce for (a gate, script, registry, schema, tool), read that partner's actual code before authoring tests, specs, or the fix. Item §2.1 verifies the bug surface; item §2.6 verifies the *integration* surface. *(Catches the framing that assumes a partner exists, or does something it doesn't.)*
 
@@ -76,21 +76,21 @@ Drift between authored framing (T1) and pickup-time reality (T2) takes three sha
 |-------|--------------|----------------------|----------------|
 | **A - State-drift** | Framing was correct at authoring; the world moved. | "Is this still true *today*?" | Cheap - git log + current code. |
 | **B - Structural-misreference** | Framing named the wrong artifact, OR missed a correctly-named existing one. | "Was this *ever* true?" | Medium - read the named artifact + verify it does what the framing claims. |
-| **C - Doctrinal-mis-citation** | (Subclass of B for content-bearing work.) Framing cites a source whose actual content does NOT match the claim attributed to it. | "Does the source *say* what the framing claims it says?" | Expensive - source lookup + content reading + claim mapping. |
+| **C - Source-mis-citation** | (Subclass of B for content-bearing work.) Framing cites a source whose actual content does NOT match the claim attributed to it. | "Does the source *say* what the framing claims it says?" | Expensive - source lookup + content reading + claim mapping. |
 
-**§3.1 Class A - State-drift.** The cheapest and most common. The framing was accurate when written; a commit, a parallel agent, or a prior session changed the underlying reality. The verification is a `git log` and a current read. The opening example in the README (guard already restored) is Class A.
+**§3.1 Class A - State-drift.** The cheapest, and in the author's experience the most frequent. The framing was accurate when written; a commit, a parallel agent, or a prior session changed the underlying reality. The verification is a `git log` and a current read. The [state-drift walkthrough](./examples/state-drift-catch-walkthrough.md) (guard already restored) is Class A.
 
 **§3.2 Class B - Structural-misreference.** The framing was never accurate: it pointed at the wrong file, named a function that doesn't do what it's said to do, or claimed an artifact exists that doesn't. More expensive because confirming requires reading the named artifact *and* establishing what it actually does.
 
-**§3.3 Class C - Doctrinal-mis-citation.** The most expensive. A content-bearing framing cites an authoritative source (a statute, a spec section, a standard) and attributes a claim to it that the source does not support. Confirming requires looking up the source, reading its actual content, and mapping it against the claim. In domains where the cited content is load-bearing for the output (legal, medical, regulated, standards-conformant), this class is where the most damaging defects hide, because the citation *looks* authoritative.
+**§3.3 Class C - Source-mis-citation.** The most expensive. A content-bearing framing cites a source (a spec, a document, a standard, an upstream comment) and attributes a claim to it that the source does not support. Confirming requires looking up the source, reading its actual content, and mapping it against the claim. Where the cited content is load-bearing for the output, this class can hide damaging defects, because the citation *looks* authoritative.
 
 ---
 
 ## §4. The Subclass Catalog
 
-Beyond A/B/C, recurring failure modes earn named subclasses for retrieval. Each shares the parent shape (T1 description drifts from T2 truth) but differs in artifact type, drift mechanism, and the verification that catches it. The catalog earns entries empirically: a subclass is added when a recurring instance is documented, not by enumeration.
+Beyond A/B/C, recurring failure modes earn named subclasses for retrieval. Each shares the parent shape (T1 description drifts from T2 truth) but differs in artifact type, drift mechanism, and the verification that catches it. In the author's experience the catalog earns entries from observed instances: a subclass is added when a recurring instance is documented, not by enumeration.
 
-**§4.1 OPERATOR-SUBSTRATE-CONFABULATION.** An operator's local cache of project state (a stale knowledge mount, an old mental model) carries filenames or dates that no longer exist on canonical. Instructions reference identifiers that have been renamed or never existed. *Mitigation:* verify by **role/content**, not by name. Search for what the artifact *does* (a function, a section header, a doctrine keyword) before searching for its name; an empty name-search is evidence about the *name*, not about the capability. When the operator-named identifier differs from the canonical one, surface the discrepancy. Do not silently substitute, because the mismatch is the signal.
+**§4.1 OPERATOR-SUBSTRATE-CONFABULATION.** An operator's local cache of project state (a stale knowledge mount, an old mental model) carries filenames or dates that no longer exist on canonical. Instructions reference identifiers that have been renamed or never existed. *Mitigation:* verify by **role/content**, not by name. Search for what the artifact *does* (a function, a section header, a distinctive keyword) before searching for its name; an empty name-search is evidence about the *name*, not about the capability. When the operator-named identifier differs from the canonical one, surface the discrepancy. Do not silently substitute, because the mismatch is the signal.
 
 **§4.2 AGENT-PRIOR-OUTPUT-AS-PREMISE.** One agent's earlier output is adopted as a premise by the same or another agent without decomposition. Aggregates ("N events across M components") are especially hazardous: they propose an action while embedding a causal interpretation that needs separate verification. *Mitigation:* decompose the aggregate before acting on it; verify the interpretation, not just the count.
 
@@ -132,9 +132,9 @@ Beyond A/B/C, recurring failure modes earn named subclasses for retrieval. Each 
 
 ## §6. The Fire/Skip Judgment
 
-**§6.1 The cost asymmetry.** The decision to fire or skip is asymmetric in favor of firing. Skipping verification on a misframed task wastes hours-to-days of downstream implementation; firing it on a correctly-framed task wastes 5-30 minutes of forensic. When uncertain, fire.
+**§6.1 The cost asymmetry.** The decision to fire or skip is asymmetric in favor of firing. Skipping verification on a misframed task wastes downstream implementation time; firing it on a correctly-framed task wastes the time of the check itself. On illustrative assumptions (not measurements), a check takes minutes and a wrong premise costs hours. When uncertain, fire.
 
-**§6.2 The break-even.** Each forensic check costs 5-30 minutes. Each catch prevents 0.5-5 hours of wrong work. The discipline pays for itself when **5% or more** of checked tasks would have been wrong-framed. In the originating project's measured window the actual catch rate was 20-30%, well above break-even.
+**§6.2 The break-even.** Illustrative assumptions, not measurements: each forensic check costs 5-30 minutes, and each catch prevents 0.5-5 hours of wrong work. The break-even catch rate is the cost per check divided by the cost avoided per catch. With those ranges the ratio spans roughly 1.7% to 100%, so the discipline pays off only where checks are cheap relative to the wrong work they prevent. Estimate your own numbers; no public data here supports a particular catch rate.
 
 **§6.3 The skip is a real option, not a failure.** Skipping per §1.5 is correct discipline, not a shortcut. Firing on a typo fix or a freshly-verified premise is the same anti-pattern as code-reviewing a comment edit: it dilutes the signal. The skill is calibration, not maximalism.
 
@@ -166,9 +166,9 @@ The checklist splits into a mechanizable subset and a judgment subset.
 
 ## §9. Anti-Patterns
 
-**§9.1 Documentation mistaken for discipline.** A memo that *describes* this discipline does not *enforce* it. The discipline operates only when the pickup-time check actually fires. In the originating project, methodology documentation sat in the repo at the same time as the failure mode it described kept recurring at pickup, because the documentation was never read at pickup. The check is the discipline; the doc is a reference.
+**§9.1 Documentation mistaken for discipline.** A memo that *describes* this discipline does not *enforce* it. The discipline operates only when the pickup-time check actually fires. In the author's experience, methodology documentation sat in the repo while the failure mode it described kept recurring at pickup, because the documentation was never read at pickup. The check is the discipline; the doc is a reference.
 
-**§9.2 Velocity-pressure skip.** Under "just ship" pressure, the check is the first thing dropped. The cost-saved math does not change under pressure; only the *apparent* friction does. The catches the check would have produced are exactly the ones that turn into the next session's crisis.
+**§9.2 Velocity-pressure skip.** Under "just ship" pressure, the check is the first thing dropped. The cost-saved math does not change under pressure; only the *apparent* friction does. The catches the check would have produced are exactly the ones that turn into the next session's rework.
 
 **§9.3 Authority-asymmetry override.** Treating a senior framer's premise as more authoritative than the picker-up's forensic finding. The correct framing: the framer authored at T1; the forensic verifies T2. Seniority does not stop the world from moving between those two moments. The reframe is not insubordination; it is the discipline working.
 
@@ -197,7 +197,7 @@ The discipline does not solve:
 
 ## §11. Versioning
 
-This is v0.1, a draft, explicitly pre-v1.0. Material changes to the A/B/C taxonomy, the §B checklist item set, or the reframe obligation produce a major version. Refinements to the subclass catalog, the fire/skip heuristics, or the anti-patterns produce minor versions (v0.2, v0.3, …). v1.0 is gated on the publication preconditions in [EVIDENCE.md](./EVIDENCE.md): cross-project validation, a subclass library at the 30-instance target, and the originating project past active crisis.
+This is v0.1, a draft, explicitly pre-v1.0. Material changes to the A/B/C taxonomy, the §B checklist item set, or the reframe obligation produce a major version. Refinements to the subclass catalog, the fire/skip heuristics, or the anti-patterns produce minor versions (v0.2, v0.3, …). v1.0 is gated on the conditions in [EVIDENCE.md](./EVIDENCE.md): a cross-project pilot with published results, documented false-positive examples, and an adoption report from a second author.
 
 ---
 

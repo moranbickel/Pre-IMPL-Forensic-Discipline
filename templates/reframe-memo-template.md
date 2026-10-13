@@ -27,7 +27,7 @@ DATE: <YYYY-MM-DD>    CLASS: <A | B | C>    SUBCLASS: <optional - see PROTOCOL Â
 ## 4. Class
 <A - state-drift (was true, world moved)
  B - structural-misreference (named the wrong artifact / missed an existing one)
- C - doctrinal-mis-citation (cited a source that doesn't support the claim)>
+ C - source-mis-citation (cited a source that doesn't support the claim)>
 <+ subclass label if one applies, e.g. OPERATOR-SUBSTRATE-CONFABULATION>
 
 ## 5. Confirmed receiver

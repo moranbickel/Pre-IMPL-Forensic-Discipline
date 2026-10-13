@@ -1,8 +1,8 @@
 # Worked Example: A State-Drift Catch, End to End
 
-A complete Pre-IMPL Forensic cycle on the **most common** class of catch: state-drift (Class A), where the framing *was* accurate when written and a parallel commit moved the world before pickup. Per [EVIDENCE.md](../EVIDENCE.md), this class dominates the corpus, and it's the cheapest to verify.
+A complete Pre-IMPL Forensic cycle on a common class of catch: state-drift (Class A), where the framing *was* accurate when written and a parallel commit moved the world before pickup. In the author's experience this is the most frequent class (an anecdotal impression, not a measurement; see [EVIDENCE.md](../EVIDENCE.md)), and it's the cheapest to verify.
 
-This is the full version of the story the [README](../README.md#the-failure-it-solves) opens with: the dropped export-gate guard. Synthetic in its specifics, real in its shape.
+Everything here is invented for illustration: the file, the commits and the status names are made up. It shows the state-drift shape described in the [rationale](../docs/rationale.md).
 
 The contrasting case, [the Class B walkthrough](./forensic-catch-walkthrough.md), shows a framing that was *never* right (wrong artifact named). This one shows a framing that was right and went stale. Same checklist, same reframe shape, much cheaper check, and a different ending: here the correct build is *nothing*.
 
@@ -14,8 +14,8 @@ A session-end handoff note, written the evening before pickup:
 
 > **Next:** fix the silent-pass in the export gate - the empty-payload guard
 > around line 400 of `gates/export_gate.py` got dropped in yesterday's refactor.
-> Exports with an empty payload are slipping through as `client_ready` instead
-> of failing. Re-add the guard.
+> Exports with an empty payload are slipping through as `ready` instead
+> of being `blocked`. Re-add the guard.
 
 This is a *good* note. It's specific, it names the file and the line, it explains the symptom, and the bug it describes was real when the note was written. The tempting move is to open `export_gate.py`, scroll to line 400, write the guard back, add a test, and ship. The premise (*the guard is still missing*) feels too obvious to check.
 
@@ -32,7 +32,7 @@ The picker-up runs the [checklist](../templates/forensic-check-checklist.md) bef
 ```python
 def evaluate(payload, run_dir):
     if not payload or len(payload) == 0:          # <-- the "dropped" guard, here
-        return Verdict(state="hard_fail", reason="empty payload")
+        return Verdict(state="blocked", reason="empty payload")
     ...
 ```
 
@@ -51,7 +51,7 @@ The regression (the dropped guard) and its fix are *both* already in history. Th
 
 ```
 $ run-gate export_gate --fixture empty_payload
-HARD_FAIL: empty payload
+BLOCKED: empty payload
 ```
 
 It fails correctly. The silent-pass the note described does not reproduce. Two independent signals now agree: the code shows a guard, and the behavior shows the guard working.
@@ -92,7 +92,7 @@ Handoff note: re-add the empty-payload guard dropped from gates/export_gate.py
   so the note's line 400 is stale too).
 - git log: guard restored in a1b2c3d at 21:40 yesterday - AFTER the note (T1) - by a
   parallel session. The dropping refactor (9f8e7d6) and its fix are both in history.
-- Reproducer: `run-gate export_gate --fixture empty_payload` → HARD_FAIL (correct).
+- Reproducer: `run-gate export_gate --fixture empty_payload` → BLOCKED (correct).
   The silent-pass does not reproduce.
 - Coverage check: restored guard covers empty AND null payload = the note's full scope.
 - Sibling scan: no other *_gate.py dropped the same guard. Isolated.
@@ -126,7 +126,7 @@ The forensic cost about five minutes: one file read, one `git log`, one reproduc
 
 ## What to notice
 
-- **This is the cheapest class and the most common one.** Per [EVIDENCE.md](../EVIDENCE.md), state-drift dominates the corpus. The entire catch is one read plus one `git log`, which is exactly why skipping it feels safe and is not. The cheaper the check, the less excuse for not running it.
+- **This is the cheapest class, and in the author's experience the most frequent.** The entire catch is one read plus one `git log`, which is exactly why skipping it feels safe and is not. The cheaper the check, the less excuse for not running it.
 - **Two signals agreeing is what makes it decisive.** The code shows a guard *and* the reproducer no longer fails *and* `git log` shows post-T1 activity. Any one alone is suggestive; together they're conclusive. The read tells you what the code says; the reproducer tells you what it does.
 - **The boot merge is often the very thing that shipped the fix.** You pulled `main` at session start, then picked up a note that the pull had already closed. Item §7 (re-read status after the merge, before forming intent) catches this class before you even open the file.
 - **"Already done" still requires a coverage check, not just an existence check.** The forensic question is whether the shipped fix covers the *scope the note described*, not merely whether some guard is present. A partial parallel fix leaves a sliver, and the sliver is the real (smaller) scope.
@@ -136,7 +136,7 @@ The forensic cost about five minutes: one file read, one `git log`, one reproduc
 ## What this example does NOT show
 
 - A **Class B** catch (structural-misreference), where the framing named the wrong artifact and the premise was *never* true. That's the [forensic-catch-walkthrough](./forensic-catch-walkthrough.md); it costs more to verify because reading the named file isn't enough; you have to read the integration partner.
-- A **Class C** catch (doctrinal-mis-citation), where a content-bearing framing cites a source that doesn't support the claim. The most expensive class; the verification is looking the source up and reading it.
+- A **Class C** catch (source-mis-citation), where a content-bearing framing cites a source that doesn't support the claim. The most expensive class; the verification is looking the source up and reading it.
 - A **skip**, a task where the check correctly does *not* fire (a typo fix, a premise you verified this same session). Knowing when not to run the check is half the discipline (see [PROTOCOL.md §1.5](../PROTOCOL.md)).
 
 For the full class taxonomy and the subclass catalog, see [PROTOCOL.md §3-§4](../PROTOCOL.md).

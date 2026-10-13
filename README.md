@@ -49,4 +49,11 @@ review of completed work; [Three-Body-Protocol](https://github.com/moranbickel/T
 provides the handoff templates whose contents still need checking.
 
 Maintained by [Moran Bickel](https://github.com/moranbickel).
-Prose: [CC BY 4.0](LICENSE-CC-BY-4.0). Templates and code: [MIT](LICENSE-MIT).
+## License
+
+- Prose under [CC BY 4.0](LICENSE-CC-BY-4.0) (https://creativecommons.org/licenses/by/4.0/):
+  `README.md`, `PROTOCOL.md`, `EVIDENCE.md`, `CONTRIBUTING.md`, `CHANGELOG.md`,
+  `diagram.svg`, `docs/`, `examples/`.
+- Templates and code under [MIT](LICENSE-MIT): `templates/` and any scripts.
+  The top-level [LICENSE](LICENSE) carries the same MIT terms plus a scope header.
+- `CITATION.cff` and `CITATION.md` are citation metadata; reuse them as needed to cite this work.

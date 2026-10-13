@@ -1,6 +1,6 @@
 # How to Adopt Pre-IMPL Forensic
 
-Concrete steps to start applying the discipline today. Estimated time to functional use: **one task**. Estimated time to fluent use: **a week of real pickups**.
+Concrete steps to start applying the discipline today. Rough guesses, not measurements: functional use after one task, fluent use after a week or so of real pickups.
 
 There's nothing to install. The discipline is a habit plus two templates. The work is building the reflex of running the check before you act on an inherited premise.
 
@@ -23,7 +23,7 @@ That's the loop. Everything else is calibration.
 
 Apply the full [§B checklist](../templates/forensic-check-checklist.md) on every task that arrives with inherited framing and is more than trivial. You're calibrating two things: your sense of which claims are load-bearing, and your speed at the checks. Expect the first few to feel slow and a little paranoid. That's the cost floor; it drops fast.
 
-Track one number: how often the check contradicts the framing. If it's near zero, your project may be slow/serial enough that the discipline isn't earning its cost yet (that's fine - see "When it doesn't fit"). If it's one in three to one in five, you've found the same rate the originating project saw, and the discipline is paying for itself.
+Track one number: how often the check contradicts the framing. If it's near zero, your project may be slow/serial enough that the discipline isn't earning its cost yet (that's fine - see "When it doesn't fit"). If it contradicts the framing often enough that the time saved outweighs the time spent checking, the discipline is paying for itself; compare your own numbers.
 
 ---
 
@@ -70,7 +70,7 @@ You'll know you've adopted the discipline when:
 - You treat an impressive count or cost delta as a reason to investigate, not a reason to act.
 - You stop reading a handoff note as instructions and start reading it as a *T1 snapshot to verify.*
 
-This typically takes a week or two of consistent pickups.
+Expect this to take a week or two of consistent pickups (a guess, not a measurement).
 
 ---
 
@@ -84,7 +84,7 @@ This typically takes a week or two of consistent pickups.
 
 **Reframe without a receiver.** "This probably belongs somewhere else" and then moving on. The correction is real but unrouted; it gets re-lost on the next pickup.
 
-**Trusting a citation because it looks authoritative.** A cited statute / spec / standard that you didn't actually look up is a Class C waiting to happen. The authoritative *form* is exactly what lets the wrong *content* survive review.
+**Trusting a citation because it looks authoritative.** A cited spec / standard / policy that you didn't actually look up is a Class C waiting to happen. The authoritative *form* is exactly what lets the wrong *content* survive review.
 
 ---
 

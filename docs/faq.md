@@ -6,7 +6,7 @@ Anticipated questions about Pre-IMPL Forensic Discipline.
 
 ### Why "Pre-IMPL"? And what's "§B"?
 
-"Pre-IMPL" = pre-implementation: the check fires *before* implementation work, on the task's premise. "§B" is a historical label - in the originating project the forensic check was item B of a larger rule, and the artifacts (memos, checklists, traces) all reference it by that token. It's preserved verbatim rather than renamed so the worked examples and originating literature stay consistent. You can call it "the forensic check"; the spec calls it §B.
+"Pre-IMPL" = pre-implementation: the check fires *before* implementation work, on the task's premise. "§B" is a historical label - it comes from the author's earlier notes, where the forensic check was item B of a larger list. It's preserved rather than renamed so the worked examples and templates use the same token. You can call it "the forensic check"; the spec calls it §B.
 
 ---
 
@@ -42,7 +42,7 @@ More than three at the top level diffuses the signal; you start hedging between 
 
 Only if you run it on everything - which the discipline explicitly tells you not to (PROTOCOL §1.5). It fires on inherited, non-trivial framings and skips typos, freshly-verified premises, and code-invariant changes.
 
-On the tasks where it does fire, the cost is 5-30 minutes and the expected saving is 0.5-5 hours when it catches something. It breaks even at a 5% catch rate; the originating project saw 20-30%. The check is the cheap path - the expensive path is the hours spent implementing against a premise that had already moved.
+On the tasks where it does fire, assume, illustratively, that a check costs 5-30 minutes and that a catch saves 0.5-5 hours (these are assumptions, not measurements). The break-even catch rate is cost per check divided by cost avoided per catch, which spans roughly 1.7% to 100% across those ranges; estimate your own, because no public data here supports a particular rate. The check is the cheap path - the expensive path is the hours spent implementing against a premise that had already moved.
 
 ---
 
@@ -82,13 +82,13 @@ The reframe is a finding, not a verdict you must obey blindly. If your forensic 
 
 ---
 
-### Why is this v0.1 when the sibling pieces are further along?
+### Why is this v0.1 when the related repos are published?
 
-Because it's honest about its evidence. The discipline is real and battle-tested, but on a *single* project. The siblings were published when their evidence base was mature; this one's isn't yet - no second-project pilot, subclass library below target. Publishing it at v1.0 would overstate what's been validated. v0.1 says: the discipline works, here's exactly what's missing, here's the input that would close the gap. See [EVIDENCE.md](../EVIDENCE.md).
+Because it's honest about its evidence. The author has used the discipline on a *single* project, and its effectiveness is unmeasured. The evidence base here is thin - no second-project pilot, no published false-positive examples. Publishing it at v1.0 would overstate what's been validated. v0.1 says: here is a checklist one author found useful, here's exactly what's missing, here's the input that would close the gap. See [EVIDENCE.md](../EVIDENCE.md).
 
 ---
 
-### How does it relate to the other ORCA methodology pieces?
+### How does it relate to the other methodology pieces?
 
 It's the *before*-layer. [Russian Judge](https://github.com/moranbickel/russian-judge) audits work after it's done; this verifies the premise before work starts. [Three-Body Protocol](https://github.com/moranbickel/three-body-protocol) and [Peer-Worker Convergence](https://github.com/moranbickel/peer-worker-convergence) produce the handoff notes and status documents this discipline distrusts - they reduce drift, this catches the residue. [CSAE](https://github.com/moranbickel/csae) attests what lands on main; this verifies what should be worked at all. The stack: forensic (premise) → TDD (build) → RJ (result) → CSAE (landing).
 
