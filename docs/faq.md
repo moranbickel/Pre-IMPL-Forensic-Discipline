@@ -42,7 +42,7 @@ More than three at the top level diffuses the signal; you start hedging between 
 
 Only if you run it on everything - which the discipline explicitly tells you not to (PROTOCOL §1.5). It fires on inherited, non-trivial framings and skips typos, freshly-verified premises, and code-invariant changes.
 
-On the tasks where it does fire, the cost is 5-30 minutes and the expected saving is 0.5-5 hours when it catches something. The break-even catch rate is cost per check divided by cost avoided per catch, which spans roughly 1.7% to 100% across those ranges; estimate your own, because no public data here supports a particular rate. The check is the cheap path - the expensive path is the hours spent implementing against a premise that had already moved.
+On the tasks where it does fire, assume, illustratively, that a check costs 5-30 minutes and that a catch saves 0.5-5 hours (these are assumptions, not measurements). The break-even catch rate is cost per check divided by cost avoided per catch, which spans roughly 1.7% to 100% across those ranges; estimate your own, because no public data here supports a particular rate. The check is the cheap path - the expensive path is the hours spent implementing against a premise that had already moved.
 
 ---
 
@@ -84,7 +84,7 @@ The reframe is a finding, not a verdict you must obey blindly. If your forensic 
 
 ### Why is this v0.1 when the sibling pieces are further along?
 
-Because it's honest about its evidence. The author has used the discipline on a *single* project, and its effectiveness is unmeasured. The siblings were published when their evidence base was more mature; this one's isn't yet - no second-project pilot, no published false-positive examples. Publishing it at v1.0 would overstate what's been validated. v0.1 says: here is a checklist one author found useful, here's exactly what's missing, here's the input that would close the gap. See [EVIDENCE.md](../EVIDENCE.md).
+Because it's honest about its evidence. The author has used the discipline on a *single* project, and its effectiveness is unmeasured. The evidence base here is thin - no second-project pilot, no published false-positive examples. Publishing it at v1.0 would overstate what's been validated. v0.1 says: here is a checklist one author found useful, here's exactly what's missing, here's the input that would close the gap. See [EVIDENCE.md](../EVIDENCE.md).
 
 ---
 

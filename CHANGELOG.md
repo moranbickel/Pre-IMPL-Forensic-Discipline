@@ -2,11 +2,12 @@
 
 ## Unreleased
 
+- Evidence statement rewritten: EVIDENCE.md now says the checklist is one author's anecdotal experience with unmeasured effectiveness; the specific operating figures and the fixed 5% break-even claim were removed (break-even is now stated as a formula); v1.0 conditions are now public and checkable (cross-project pilot, documented false positives, a second author's report). docs/rationale.md was shortened to a generic motivation. The walkthrough's status names were replaced with invented ones.
 - Renamed drift Class C from "Doctrinal-mis-citation" to "Source-mis-citation" in PROTOCOL.md (§3 table, §3.3), the reframe-memo template, both walkthroughs and the diagram description. Definition unchanged in substance: a framing cites a source (spec, document, standard, upstream comment) that does not say what is attributed to it.
 - PROTOCOL.md §4.9 - new subclass **GENERATED-ARTIFACT-FINDING-WITHOUT-PROVENANCE**: a finding emitted by a generated artifact (test result, CI report, build/analysis verdict, output bundle) treated as describing the *current* code when it was produced by an *earlier* tree. Mitigation: verify the artifact's producing commit/tree is current before acting on the finding. Adds a §1.4 firing trigger and a paired anti-pattern §9.8 (stale-result-as-current); flagged as cheaply mechanizable per §8.1 (stamp artifacts with the producing commit, compare against canonical at consumption).
 - PROTOCOL.md §4.10 - new subclass **SUBSUMPTION-CLAIM-BY-NAME**: a change scoped on "X already covers this" (or its inverse, "this needs a new X") settled by X's *name* rather than its *predicate*. Mitigation: read what X actually governs and test subsumption directly - conclude "covered" only on a genuine subset, create new only on a genuine non-subset. Self-referential (governs this catalog's own growth). Adds a §1.4 firing trigger and a paired anti-pattern §9.7 (subsumption-by-name).
 - EVIDENCE.md / README.md / CONTRIBUTING.md - subclass count updated eight → ten.
-- `examples/state-drift-catch-walkthrough.md` - new end-to-end **Class A (state-drift)** worked example, the full version of the README's opening anecdote (the dropped export-gate guard, already restored by a parallel commit). Previously only the Class B case had a walkthrough. Wired into the README docmap and the Class B walkthrough's cross-reference.
+- `examples/state-drift-catch-walkthrough.md` - new end-to-end **Class A (state-drift)** worked example, an invented example in which the premise was already fixed by a parallel commit. Previously only the Class B case had a walkthrough. Wired into the README docmap and the Class B walkthrough's cross-reference.
 
 ## v0.1 - 2026-05-26
 

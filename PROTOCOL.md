@@ -24,7 +24,7 @@ A note on the name: "§B" is a historical label. It comes from the author's earl
 
 **§1.4 When it fires.** The discipline fires when a task carries *inherited framing* AND wrong-framing cost ≥ verification cost. Concretely, when the task arrived via any of:
 
-- A plan or spec reference ("WS-X item 4").
+- A plan or spec reference ("workstream X, item 4").
 - A backlog row in any tracking document.
 - A pickup memo from a prior session.
 - A reframe pointer from another agent's output.
@@ -58,7 +58,7 @@ When a task triggers the discipline, the picker-up runs this seven-item check BE
 
 **§2.4 Cross-verify path resolution against the running workspace.** If the task says "writes to X," inspect every working tree / branch / environment for recently-modified versions at X. *(Cross-workspace pollution zone: in parallel-agent systems the "same" file exists in several places at once.)*
 
-**§2.5 Scan for sibling instances if the bug class is recognizable.** The task flags one site; grep the codebase for the same pattern shape. Five-plus siblings means the right move is a class-sweep workstream, filed *before* the individual symptom fix. *(Turns a one-off fix into a root-cause fix, or surfaces that the "one bug" is one of many.)*
+**§2.5 Scan for sibling instances if the bug class is recognizable.** The task flags one site; grep the codebase for the same pattern shape. As a rule of thumb, five or more siblings means the right move is a class-sweep workstream, filed *before* the individual symptom fix. *(Turns a one-off fix into a root-cause fix, or surfaces that the "one bug" is one of many.)*
 
 **§2.6 Read the integration partners' actual code.** When the task references a named partner the work will consume from or produce for (a gate, script, registry, schema, tool), read that partner's actual code before authoring tests, specs, or the fix. Item §2.1 verifies the bug surface; item §2.6 verifies the *integration* surface. *(Catches the framing that assumes a partner exists, or does something it doesn't.)*
 
@@ -78,7 +78,7 @@ Drift between authored framing (T1) and pickup-time reality (T2) takes three sha
 | **B - Structural-misreference** | Framing named the wrong artifact, OR missed a correctly-named existing one. | "Was this *ever* true?" | Medium - read the named artifact + verify it does what the framing claims. |
 | **C - Source-mis-citation** | (Subclass of B for content-bearing work.) Framing cites a source whose actual content does NOT match the claim attributed to it. | "Does the source *say* what the framing claims it says?" | Expensive - source lookup + content reading + claim mapping. |
 
-**§3.1 Class A - State-drift.** The cheapest, and in the author's experience the most frequent. The framing was accurate when written; a commit, a parallel agent, or a prior session changed the underlying reality. The verification is a `git log` and a current read. The opening example in the [rationale](./docs/rationale.md) (guard already restored) is Class A.
+**§3.1 Class A - State-drift.** The cheapest, and in the author's experience the most frequent. The framing was accurate when written; a commit, a parallel agent, or a prior session changed the underlying reality. The verification is a `git log` and a current read. The [state-drift walkthrough](./examples/state-drift-catch-walkthrough.md) (guard already restored) is Class A.
 
 **§3.2 Class B - Structural-misreference.** The framing was never accurate: it pointed at the wrong file, named a function that doesn't do what it's said to do, or claimed an artifact exists that doesn't. More expensive because confirming requires reading the named artifact *and* establishing what it actually does.
 
@@ -88,7 +88,7 @@ Drift between authored framing (T1) and pickup-time reality (T2) takes three sha
 
 ## §4. The Subclass Catalog
 
-Beyond A/B/C, recurring failure modes earn named subclasses for retrieval. Each shares the parent shape (T1 description drifts from T2 truth) but differs in artifact type, drift mechanism, and the verification that catches it. The catalog earns entries empirically: a subclass is added when a recurring instance is documented, not by enumeration.
+Beyond A/B/C, recurring failure modes earn named subclasses for retrieval. Each shares the parent shape (T1 description drifts from T2 truth) but differs in artifact type, drift mechanism, and the verification that catches it. In the author's experience the catalog earns entries from observed instances: a subclass is added when a recurring instance is documented, not by enumeration.
 
 **§4.1 OPERATOR-SUBSTRATE-CONFABULATION.** An operator's local cache of project state (a stale knowledge mount, an old mental model) carries filenames or dates that no longer exist on canonical. Instructions reference identifiers that have been renamed or never existed. *Mitigation:* verify by **role/content**, not by name. Search for what the artifact *does* (a function, a section header, a distinctive keyword) before searching for its name; an empty name-search is evidence about the *name*, not about the capability. When the operator-named identifier differs from the canonical one, surface the discrepancy. Do not silently substitute, because the mismatch is the signal.
 
@@ -132,9 +132,9 @@ Beyond A/B/C, recurring failure modes earn named subclasses for retrieval. Each 
 
 ## §6. The Fire/Skip Judgment
 
-**§6.1 The cost asymmetry.** The decision to fire or skip is asymmetric in favor of firing. Skipping verification on a misframed task wastes hours-to-days of downstream implementation; firing it on a correctly-framed task wastes 5-30 minutes of forensic. When uncertain, fire.
+**§6.1 The cost asymmetry.** The decision to fire or skip is asymmetric in favor of firing. Skipping verification on a misframed task wastes downstream implementation time; firing it on a correctly-framed task wastes the time of the check itself. On illustrative assumptions (not measurements), a check takes minutes and a wrong premise costs hours. When uncertain, fire.
 
-**§6.2 The break-even.** Each forensic check costs 5-30 minutes. Each catch prevents 0.5-5 hours of wrong work. The break-even catch rate is the cost per check divided by the cost avoided per catch. With those ranges the ratio spans roughly 1.7% to 100%, so the discipline pays off only where checks are cheap relative to the wrong work they prevent. Estimate your own numbers; no public data here supports a particular catch rate.
+**§6.2 The break-even.** Illustrative assumptions, not measurements: each forensic check costs 5-30 minutes, and each catch prevents 0.5-5 hours of wrong work. The break-even catch rate is the cost per check divided by the cost avoided per catch. With those ranges the ratio spans roughly 1.7% to 100%, so the discipline pays off only where checks are cheap relative to the wrong work they prevent. Estimate your own numbers; no public data here supports a particular catch rate.
 
 **§6.3 The skip is a real option, not a failure.** Skipping per §1.5 is correct discipline, not a shortcut. Firing on a typo fix or a freshly-verified premise is the same anti-pattern as code-reviewing a comment edit: it dilutes the signal. The skill is calibration, not maximalism.
 

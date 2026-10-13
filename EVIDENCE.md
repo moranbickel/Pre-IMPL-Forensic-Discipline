@@ -32,7 +32,7 @@ These are impressions from the author's own use, not metrics.
 
 **Pattern 4 - Authority asymmetry suppresses the check.** When a senior person's framing was treated as more authoritative than an agent's forensic finding, the check got overridden and the drift survived. The reframe that helps - "the framing was authored at T1; the forensic verifies T2" - had to be made explicit before the check was applied reliably to premises written by senior people.
 
-**Pattern 5 - The subclasses are retrieval aids, not theory.** Each named subclass was named because it recurred. The catalog's value is recognition: the next pickup sees the shape and reaches for the mitigation that worked last time.
+**Pattern 5 - The subclasses are retrieval aids, not theory.** In the author's experience, each named subclass was named because it recurred. The catalog's value is recognition: the next pickup sees the shape and reaches for the mitigation that worked last time.
 
 ## What this does NOT show
 
